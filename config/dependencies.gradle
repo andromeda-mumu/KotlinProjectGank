@@ -1,0 +1,17 @@
+ext{
+
+    daggerLibVersion = "2.7"
+    rxjavaLibVersion = "1.2.0"
+    rxAndroidVersion = "1.2.1"
+    dependencies =[
+            //dagger 2
+            daggerCompiler :"com.google.dagger:dagger-compiler:$daggerLibVersion",
+            dagger : "com.google.dagger:dagger:$daggerLibVersion",
+            javaxAnnotation : 'org.glassfish:javax.annotation:10.0-b28',
+            //rx
+            rxJava :"io.reactivex:rxjava:$rxjavaLibVersion",
+            rxAndroid :"io.reactivex:rxandroid:$rxAndroidVersion"
+
+
+    ]
+}
