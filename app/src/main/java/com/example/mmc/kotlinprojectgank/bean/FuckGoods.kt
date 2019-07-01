@@ -6,7 +6,7 @@ package com.example.mmc.kotlinprojectgank.bean
  */
 data class FuckGoods(
     val _id:String,
-    val createAt:String,
+    val createdAt:String,
     val desc:String,
     val images:Array<String>,
     val publishedAt :String,
@@ -19,5 +19,5 @@ data class FuckGoods(
     fun hasImg():Boolean{
         return images != null
     }
-    fun cteate()=createAt.substring(0,10)
+    fun create()=createdAt.substring(0,10)
 }
