@@ -15,7 +15,7 @@ import javax.inject.Inject
  * description:
  */
 class FuckGoodsModel
-@Inject constructor(private val api: GankApi):FuckGoodsContract.Model{
+@Inject constructor(private val api: GankApi):FuckGoodsContract.Model{ //提供FuckGoodsModel依赖实例
     override fun getData(page: Int, type: String): Observable<JsonResult<List<FuckGoods>>> {
         when(type){
             AndroidFragment.ANDROID->return api.getAndroidData(page)

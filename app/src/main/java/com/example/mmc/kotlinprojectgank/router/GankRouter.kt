@@ -6,7 +6,7 @@ import android.net.Uri
 
 /**
  * Created by wangjiao on 2019/6/25.
- * description:
+ * description: activity跳转而已
  */
 object GankRouter{
     fun router(context: Context,uri:String){

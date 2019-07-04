@@ -12,7 +12,7 @@ import javax.inject.Inject
  * description:
  */
 class RandomModel
-@Inject constructor(private val api:GankApi):RandomContract.Model{
+@Inject constructor(private val api:GankApi):RandomContract.Model{ //提供RandomModel依赖实例
     override fun getRandom(type: String): Observable<JsonResult<List<FuckGoods>>> {
         return api.getRandom(type)
     }

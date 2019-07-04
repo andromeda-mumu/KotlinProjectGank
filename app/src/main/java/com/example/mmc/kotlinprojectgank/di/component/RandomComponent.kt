@@ -11,10 +11,10 @@ import dagger.Subcomponent
  * description:
  */
 @Subcomponent(modules = arrayOf(RandomModule::class))
-interface RandomComponent{
+interface RandomComponent{ //对mainactivity注入，找到mainActivity里面被@Inject注解标注的依赖，通过去randomModule找到提供的依赖实例，其实提供的view这个依赖实体
     fun inject(activity: MainActivity)
 }
 @Module
-class RandomModule(private val mView:RandomContract.View){
+class RandomModule(private val mView:RandomContract.View){ //这里的view是在mainActivity中传入的
     @Provides fun getView()=mView
 }

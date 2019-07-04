@@ -25,7 +25,7 @@ import javax.inject.Singleton
 @Module(includes = arrayOf(AppModule::class))
 class ApiModule{
     @Provides
-    @Singleton
+    @Singleton  //提供单例retrofit
     fun provideRetrofit(baseUrl: HttpUrl, client: OkHttpClient, gson: Gson) =
             Retrofit.Builder()
                     .client(client)
@@ -36,7 +36,7 @@ class ApiModule{
 
     @Provides
     fun provideBaseUrl() = HttpUrl.parse("http://gank.io/api/")
-    @Provides
+    @Provides  //提供okhttp依赖实例
     fun provideOkhttp(context: Context, interceptor: HttpLoggingInterceptor): OkHttpClient {
         val cacheSize = 1024 * 1024 * 10L
         val cacheDir = File(context.cacheDir, "http")

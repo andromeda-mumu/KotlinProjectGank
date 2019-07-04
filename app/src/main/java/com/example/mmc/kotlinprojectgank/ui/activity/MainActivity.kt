@@ -28,14 +28,14 @@ import javax.inject.Inject
 class MainActivity : BaseBindingActivity<ActivityMainBinding>(),RandomContract.View{
 
     lateinit var mFragments :MutableList<Fragment>
-    @Inject lateinit var mPresenter:RandomPresenter
+    @Inject lateinit var mPresenter:RandomPresenter //通过注入的方式，已经获得了实例，在第一次使用时，才注入，有实例
 
     override fun createDataBinding(savedInstanceState: Bundle?): ActivityMainBinding {
         return DataBindingUtil.setContentView(this, R.layout.activity_main)
     }
     override fun initView(){
         initFragments()
-        getMainComponent().plus(RandomModule(this)).inject(this)
+        getMainComponent().plus(RandomModule(this)).inject(this) //注入
         viewPager.adapter = object :FragmentPagerAdapter(supportFragmentManager){
             override fun getItem(position:Int)= mFragments[position]
             override fun getCount()=mFragments.size

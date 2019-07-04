@@ -33,7 +33,7 @@ class IOSFragment:BaseBindingFragment<ViewRecyclerBinding>(),FuckGoodsContract.V
 
     override fun initView(){
         mAdapter = FuckGoodsAdapter(mList)
-        context.getMainComponent().plus(FuckGoodsModule(this)).inject(this)
+        context.getMainComponent().plus(FuckGoodsModule(this)).inject(this) //原来view是利用FuckGoodsModule注入的
         with(mBinding!!){
             recyclerView.adapter = mAdapter
             recyclerView.layoutManager = LinearLayoutManager(context)

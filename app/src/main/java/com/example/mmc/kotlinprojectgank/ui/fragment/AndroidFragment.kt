@@ -31,7 +31,7 @@ class AndroidFragment :BaseBindingFragment<ViewRecyclerBinding>(),FuckGoodsContr
     }
     override fun initView(){
         mAdapter = FuckGoodsAdapter(mList)
-        context.getMainComponent().plus(FuckGoodsModule(this)).inject(this)
+        context.getMainComponent().plus(FuckGoodsModule(this)).inject(this) //注入
         with(mBinding!!){
             recyclerView.adapter = mAdapter
             recyclerView.layoutManager = LinearLayoutManager(context)
@@ -39,7 +39,7 @@ class AndroidFragment :BaseBindingFragment<ViewRecyclerBinding>(),FuckGoodsContr
             recyclerView.addOnScrollListener(object :RecyclerView.OnScrollListener(){
                 override fun onScrolled(recyclerView: RecyclerView?, dx: Int, dy: Int) {
                     super.onScrolled(recyclerView, dx, dy)
-                    if(!recyclerView?.canScrollVertically(1)!!){
+                    if(!recyclerView?.canScrollVertically(1)!!){ //两个!!啥意思
                         mPresenter.getData(++mPage,ANDROID)
                     }
                 }
@@ -53,7 +53,7 @@ class AndroidFragment :BaseBindingFragment<ViewRecyclerBinding>(),FuckGoodsContr
         mPresenter.getData(mPage,ANDROID)
 
         mAdapter.setOnItemClickListener {
-            pos->
+            pos-> //-> 符号之前的是参数，符号之后的是方法逻辑
             val url = URLEncoder.encode(mList[pos].url)
             GankRouter.router(context,GankClientUri.DETAIL+url)
         }
